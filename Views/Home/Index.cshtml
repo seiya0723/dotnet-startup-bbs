@@ -1,0 +1,45 @@
+﻿
+@* これでコメントアウトできる。 *@
+@*
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+*@
+
+@model IEnumerable<StartupBBS.Models.Comment>
+
+<h1>コメント掲示板</h1>
+
+<!-- コメント一覧の表示 -->
+<div>
+    @foreach (var comment in Model)
+    {
+        <div>
+            <strong>@comment.UserName</strong> (@comment.PostedAt)
+            <p>@comment.Content</p>
+        </div>
+    }
+</div>
+
+<!-- コメント投稿フォーム -->
+<h2>コメントを投稿</h2>
+<form method="post" action="/Home/PostComment">
+    <div>
+        <label for="userName">名前：</label>
+        <input type="text" id="userName" name="userName" required />
+    </div>
+    <div>
+        <label for="content">コメント：</label>
+        <textarea id="content" name="content" required></textarea>
+    </div>
+    <button type="submit">投稿</button>
+</form>
+
+
