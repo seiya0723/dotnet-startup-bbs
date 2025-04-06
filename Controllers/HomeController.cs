@@ -18,9 +18,6 @@ namespace StartupBBS.Controllers
         public IActionResult Index()
         {
 
-            Console.WriteLine("Hello");
-
-
             var comments = _context.Comments.ToList();  // コメント一覧を取得
             return View(comments);
         }
